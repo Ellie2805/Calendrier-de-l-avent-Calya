@@ -6,9 +6,15 @@
 body {
     margin: 0;
     min-height: 100vh;
-    font-family: Georgia, "Times New Roman", serif;
-    background: #f4eee5;
-    color: #473b34;
+    font-family: "Cinzel", serif;
+    background: repeating-linear-gradient(
+    90deg,
+    #7D1728 0px,
+    #7D1728 81px,
+    #681222 81px,
+    #681222 162px
+);
+    color: #FFFFFF;
 }
 
 .accueil {
@@ -22,22 +28,29 @@ body {
 }
 
 .sous-titre {
-    font-family: Arial, sans-serif;
+    font-family: "Cinzel", serif;
     font-size: 11px;
     letter-spacing: 3px;
 }
 
+
 h1 {
-    max-width: 700px;
-    font-size: clamp(38px, 7vw, 76px);
+    font-family: "Berkshire Swash", cursive;
     font-weight: normal;
-    margin: 24px 0;
+    font-size: clamp(64px, 10vw, 100px);
+    line-height: 1.15;
+    overflow-wrap: normal;
 }
 
 .description {
+    font-family: "Cinzel", serif;
     max-width: 420px;
+    width: 100%;
     font-size: 18px;
     line-height: 1.8;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 button {
@@ -45,20 +58,21 @@ button {
     padding: 16px 28px;
     border: none;
     border-radius: 4px;
-    background: #75634f;
-    color: white;
+    background: #174A32;
+    color: #FFFFFF;
     font-size: 14px;
     cursor: pointer;
     transition: background 0.2s, transform 0.2s;
 }
 
 button:hover {
-    background: #594938;
+    background: #103522;
     transform: translateY(-2px);
 }
 
 .signature {
     margin-top: 48px;
+    font-family: "Cinzel", serif;
     font-size: 13px;
     opacity: 0.75;
 }
