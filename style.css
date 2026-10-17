@@ -8,12 +8,12 @@ body {
     min-height: 100vh;
     font-family: "Cinzel", serif;
     background: repeating-linear-gradient(
-    90deg,
-    #7D1728 0px,
-    #7D1728 81px,
-    #681222 81px,
-    #681222 162px
-);
+        90deg,
+        #7D1728 0px,
+        #7D1728 81px,
+        #681222 81px,
+        #681222 162px
+    );
     color: #FFFFFF;
 }
 
@@ -32,7 +32,6 @@ body {
     font-size: 11px;
     letter-spacing: 3px;
 }
-
 
 h1 {
     font-family: "Berkshire Swash", cursive;
@@ -70,9 +69,114 @@ button:hover {
     transform: translateY(-2px);
 }
 
+button:disabled {
+    cursor: wait;
+}
+
 .signature {
     margin-top: 48px;
     font-family: "Cinzel", serif;
     font-size: 13px;
     opacity: 0.75;
+}
+
+
+/* Écran de transition */
+.transition-neige {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    overflow: hidden;
+    pointer-events: none;
+    opacity: 1;
+    transition: opacity 0.65s ease;
+}
+
+/* Particules lumineuses */
+.particule-lumiere {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: var(--taille);
+    height: var(--taille);
+    border-radius: 50%;
+    background: #FFFFFF;
+    box-shadow:
+        0 0 5px 2px rgba(255, 255, 255, 1),
+        0 0 12px 5px rgba(255, 255, 255, 0.9),
+        0 0 22px 8px rgba(255, 255, 255, 0.45);
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    will-change: transform, opacity;
+}
+
+/* Expansion radiale depuis le centre, sans rotation */
+.transition-neige.demarre .particule-lumiere {
+    animation:
+        particules-rayonnantes
+        var(--duree)
+        ease-out
+        forwards;
+    animation-delay: var(--delai);
+}
+
+@keyframes particules-rayonnantes {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.3);
+    }
+
+    12% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+        transform:
+            translate(
+                calc(-50% + var(--x)),
+                calc(-50% + var(--y))
+            )
+            scale(1);
+    }
+}
+
+/* Flocons décoratifs */
+.flocon-transition {
+    position: absolute;
+    top: -20px;
+    z-index: 2;
+    color: #FFFFFF;
+    text-shadow: 0 0 8px #FFFFFF;
+    animation: neige-tombe var(--duree) linear forwards;
+}
+
+@keyframes neige-tombe {
+    to {
+        transform: translate3d(var(--decalage), 110vh, 0);
+        opacity: 0;
+    }
+}
+
+/* Flash blanc final */
+.voile-final {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    background: #FFFFFF;
+    opacity: 0;
+    transition: opacity 0.55s ease;
+}
+
+.transition-neige.blanc-final .voile-final {
+    opacity: 1;
+}
+
+/* Le blanc disparaît pour révéler le calendrier */
+.transition-neige.disparait {
+    opacity: 0;
+}
+
+.transition-neige.disparait .voile-final {
+    opacity: 0;
 }
