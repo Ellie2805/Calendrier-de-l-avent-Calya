@@ -1,0 +1,64 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Georgia, "Times New Roman", serif;
+    background: #f4eee5;
+    color: #473b34;
+}
+
+.accueil {
+    min-height: 100vh;
+    padding: 40px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.sous-titre {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+}
+
+h1 {
+    max-width: 700px;
+    font-size: clamp(38px, 7vw, 76px);
+    font-weight: normal;
+    margin: 24px 0;
+}
+
+.description {
+    max-width: 420px;
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+button {
+    margin-top: 24px;
+    padding: 16px 28px;
+    border: none;
+    border-radius: 4px;
+    background: #75634f;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+button:hover {
+    background: #594938;
+    transform: translateY(-2px);
+}
+
+.signature {
+    margin-top: 48px;
+    font-size: 13px;
+    opacity: 0.75;
+}
